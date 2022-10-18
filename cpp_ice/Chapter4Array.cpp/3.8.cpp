@@ -47,14 +47,15 @@ int main(){
                             array[1][0]=array[1][0]^control[0];
                             array[0][1]=array[0][1]^control[1];
                             }
+                            else if(i==4){
+                            array[0][i]=array[0][i]^control[i];
+                            array[0][i-1]=array[0][i-1]^control[i];
+                            array[1][i]=array[1][i]^control[i];    
+                            }else{
                             array[0][i]=array[0][i]^control[i];
                             array[0][i-1]=array[0][i-1]^control[i];
                             array[0][i+1]=array[0][i+1]^control[i];
                             array[1][i]=array[1][i]^control[i];
-                            if(i==4){
-                            array[0][i]=array[0][i]^control[i];
-                            array[0][i-1]=array[0][i-1]^control[i];
-                            array[1][i]=array[1][i]^control[i];    
                             }
                         }
                         
@@ -73,25 +74,26 @@ int main(){
                                     //array[row][col-1]=array[row][col-1]^1;
                                     array[row][col+1]=array[row][col+1]^1;
                                     }
-                                    if(col==4){
+                                    else if(col==4){
                                     array[row][col]=array[row][col]^1;
                                     array[row-1][col]=1;
                                     array[row+1][col]=array[row+1][col]^1;
                                     array[row][col-1]=array[row][col-1]^1;
                                     //array[row][col+1]=array[row][col+1]^1;
                                     }
-                                    if(row==4){
+                                    else if(row==4){
                                     array[row][col]=array[row][col]^1;
                                     array[row-1][col]=1;
                                     //array[row+1][col]=array[row+1][col]^1;
                                     array[row][col-1]=array[row][col-1]^1;
                                     array[row][col+1]=array[row][col+1]^1;
-                                    }
+                                    }else{
                                     array[row][col]=array[row][col]^1;
                                     array[row-1][col]=1;
                                     array[row+1][col]=array[row+1][col]^1;
                                     array[row][col-1]=array[row][col-1]^1;
                                     array[row][col+1]=array[row][col+1]^1;
+                                    }
                                 }
                             }
                         }
