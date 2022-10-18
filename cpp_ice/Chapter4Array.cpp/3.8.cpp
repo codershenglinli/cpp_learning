@@ -67,33 +67,15 @@ int main(){
                             for (int col=0;col<5;col++){
                                 if (array[row-1][col]==0){
                                     ++count;
-                                    if(col==0){
                                     array[row][col]=array[row][col]^1;
                                     array[row-1][col]=1;
-                                    array[row+1][col]=array[row+1][col]^1;
-                                    //array[row][col-1]=array[row][col-1]^1;
-                                    array[row][col+1]=array[row][col+1]^1;
-                                    }
-                                    else if(col==4){
-                                    array[row][col]=array[row][col]^1;
-                                    array[row-1][col]=1;
-                                    array[row+1][col]=array[row+1][col]^1;
-                                    array[row][col-1]=array[row][col-1]^1;
-                                    //array[row][col+1]=array[row][col+1]^1;
-                                    }
-                                    else if(row==4){
-                                    array[row][col]=array[row][col]^1;
-                                    array[row-1][col]=1;
-                                    //array[row+1][col]=array[row+1][col]^1;
-                                    array[row][col-1]=array[row][col-1]^1;
-                                    array[row][col+1]=array[row][col+1]^1;
-                                    }else{
-                                    array[row][col]=array[row][col]^1;
-                                    array[row-1][col]=1;
-                                    array[row+1][col]=array[row+1][col]^1;
-                                    array[row][col-1]=array[row][col-1]^1;
-                                    array[row][col+1]=array[row][col+1]^1;
-                                    }
+                                    if(row!=4)
+                                        array[row+1][col]=array[row+1][col]^1;
+                                    if(col!=0)
+                                        array[row][col-1]=array[row][col-1]^1;
+                                    if(col!=4)
+                                        array[row][col+1]=array[row][col+1]^1;
+                                    
                                 }
                             }
                         }
