@@ -10,7 +10,24 @@
 using namespace std;
 
 int main(){
-    int n;
+    int n,x;
     cin>>n;
+    int array[1000];
+    for(int i=0;i<n;i++){
+        cin >> array[i];
+    }
+    cin >> x;
+    int first=-1,last=-1;
+    bool exist = false;
+    for (int i=0;i<n;i++){
+        while(!exist){
+        if(array[i]==x){
+            first = i;
+            exist = true;
+        }
+        break;}
+        if(array[i]==x) last = i;
+    }
+    cout << first << ' ' << last;
     return 0;
 }
