@@ -40,12 +40,25 @@ int main(){
                             }
                         }
                         //对第一行进行变换
+                        
                         for (int i=0;i<5;i++){
+                            if(i==0){
+                            array[0][0]=array[0][0]^control[0];
+                            array[1][0]=array[1][0]^control[0];
+                            array[0][1]=array[0][1]^control[1];
+                            }
                             array[0][i]=array[0][i]^control[i];
                             array[0][i-1]=array[0][i-1]^control[i];
                             array[0][i+1]=array[0][i+1]^control[i];
                             array[1][i]=array[1][i]^control[i];
+                            if(i==4){
+                            array[0][i]=array[0][i]^control[i];
+                            array[0][i-1]=array[0][i-1]^control[i];
+                            array[1][i]=array[1][i]^control[i];    
+                            }
                         }
+                        
+
                         //计算变换次数
                         int count =a1+a2+a3+a4+a5;
                         //对后四行进行变换
@@ -53,6 +66,27 @@ int main(){
                             for (int col=0;col<5;col++){
                                 if (array[row-1][col]==0){
                                     ++count;
+                                    if(col==0){
+                                    array[row][col]=array[row][col]^1;
+                                    array[row-1][col]=1;
+                                    array[row+1][col]=array[row+1][col]^1;
+                                    //array[row][col-1]=array[row][col-1]^1;
+                                    array[row][col+1]=array[row][col+1]^1;
+                                    }
+                                    if(col==4){
+                                    array[row][col]=array[row][col]^1;
+                                    array[row-1][col]=1;
+                                    array[row+1][col]=array[row+1][col]^1;
+                                    array[row][col-1]=array[row][col-1]^1;
+                                    //array[row][col+1]=array[row][col+1]^1;
+                                    }
+                                    if(row==4){
+                                    array[row][col]=array[row][col]^1;
+                                    array[row-1][col]=1;
+                                    //array[row+1][col]=array[row+1][col]^1;
+                                    array[row][col-1]=array[row][col-1]^1;
+                                    array[row][col+1]=array[row][col+1]^1;
+                                    }
                                     array[row][col]=array[row][col]^1;
                                     array[row-1][col]=1;
                                     array[row+1][col]=array[row+1][col]^1;
