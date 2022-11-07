@@ -45,7 +45,7 @@ int main(){
                             if(i==0){
                             array[0][0]=array[0][0]^control[0];
                             array[1][0]=array[1][0]^control[0];
-                            array[0][1]=array[0][1]^control[1];
+                            array[0][1]=array[0][1]^control[0];
                             }
                             else if(i==4){
                             array[0][i]=array[0][i]^control[i];

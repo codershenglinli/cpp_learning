@@ -1,30 +1,32 @@
 #include<iostream>
 using namespace std;
 
-struct linkRec{
+//单链表
+struct LinkNode{
     int data;
-    linkRec *next;
+    LinkNode *next;
 };
+
 int main(){
-    int x;
-    linkRec *head, *p, *rear;
-    head = rear = new linkRec;
-    while (true){
+    LinkNode *begin = new LinkNode;
+    LinkNode *end = begin;
+    LinkNode *p;
+
+    while(true){
+        int x;
         cin >> x;
         if(x==0) break;
-        p = new linkRec;
+        p = new LinkNode;
         p->data = x;
-        rear->next = p;
-        rear = p;
+        end->next = p;
+        end = p; 
     }
-    
-    rear->next=NULL;
-
-    cout << "链表的内容为：";
-    p = head->next;
+    end->next=NULL;
+    p = begin->next;
     while(p!=NULL){
-        cout << p->data << endl;
+        cout << p->data << ' ';
         p=p->next;
     }
+
     return 0;
 }
