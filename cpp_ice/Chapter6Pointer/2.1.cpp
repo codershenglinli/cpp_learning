@@ -26,12 +26,14 @@ char *julian(int year, int day){
     bool leap_year;
     if(year%4==0&&year%100!=0||year%400==0){
         leap_year = true;
+        if(day>366) return NULL;
     }else{
         leap_year = false;
+        if(day>365) return NULL;
     }
 
     //store the months
-    int leap_year_month[12] = {31,29,31,30,31,30,31,31,30,31,30,31};
+    int leap_year_month[12] =     {31,29,31,30,31,30,31,31,30,31,30,31};
     int non_leap_year_month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
 
     int month = 0;
@@ -40,7 +42,7 @@ char *julian(int year, int day){
             day -= leap_year_month[month];
         }
     }else{
-        for(;day>leap_year_month[month];++month){
+        for(;day>non_leap_year_month[month];++month){
             day -= non_leap_year_month[month];
         }
     }
@@ -50,8 +52,9 @@ char *julian(int year, int day){
     for(int i=0;i<4;i++){
         *(ans+i) = *(*(Name_of_months+month)+i);
     }  
-    *(ans+4) = day/10;
-    *(ans+5) = day%10;
+    *(ans+4) = day/10+'0';
+    *(ans+5) = day%10+'0';
+    *(ans+6) = '\0';
 
     return ans;
 }
