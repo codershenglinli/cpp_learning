@@ -113,7 +113,7 @@ void add_float(char* a, char* b, char* res){
     int sum_zhengshu[128];
     int sum_xiaoshu[128];
     int jinwei[128]={1};
-    int len_xiaoshu1=0,len_xiaoshu2=0;
+    //int len_xiaoshu1=0,len_xiaoshu2=0;
     divide_num(a,zhengshu1,xiaoshu1);
     divide_num(b,zhengshu2,xiaoshu2);
     add_zhengshu(zhengshu1,zhengshu2,sum_zhengshu);

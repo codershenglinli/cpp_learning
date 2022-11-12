@@ -22,7 +22,9 @@ void max_max(long int a[],int n,long int *max,long int *max2){
     switch (n)
     {
     case 1:
-        *max = *max2 = a[0];
+        *max = a[0];
+        //这个地方有点问题，得改。
+        *max2 = -10000;
         break;
     case 2:
         if(a[0]>a[1]) {*max = a[0]; *max2 = a[1];}
