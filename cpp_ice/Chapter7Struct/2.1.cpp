@@ -18,6 +18,7 @@ struct matrix
 {
     long long int a,b,c,d;
 };
+/*
 long long int mul_large_int(long long a, long long b){
     unsigned long long un_a = a;
     unsigned long long un_b = b;
@@ -27,8 +28,13 @@ long long int mul_large_int(long long a, long long b){
     if(a<0&&b<0||a>0&&b>0) return ans;
     else return -ans;
 }
+*/
 matrix mul(matrix a, matrix b){
-    matrix ans = {(mul_large_int(a.a,b.a)%(1000000007LL)+mul_large_int(a.b,b.c)%(1000000007LL))%(1000000007LL),(mul_large_int(a.a,b.b)%(1000000007LL)+mul_large_int(a.b,b.d)%(1000000007LL))%(1000000007LL),(mul_large_int(a.c,b.a)%(1000000007LL)+mul_large_int(a.d,b.c)%(1000000007LL))%(1000000007),(mul_large_int(a.c,b.b)%(1000000007LL)+mul_large_int(a.d,b.d)%(1000000007LL))%(1000000007LL)};
+    matrix ans;
+    ans.a = (1000000007+a.a*b.a+a.b*b.c)%1000000007;
+    ans.b = (1000000007+a.a*b.b+a.b*b.d)%1000000007;
+    ans.c = (1000000007+a.c*b.a+a.d*b.c)%1000000007;
+    ans.d = (1000000007+a.c*b.b+a.d*b.d)%1000000007;
     return ans;
 }
 matrix fpower(matrix x, long long int n){
